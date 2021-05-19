@@ -22,7 +22,7 @@ conn.connect(function(err){
     if(err){
         throw err;
     }
-    console.log("MYSQL Connecte")
+    console.log("MYSQL Connected")
 })
 // async function main() {
 //     const url = "mongodb+srv://UserDB:Crystleclown1106@cluster0.5jzb1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
