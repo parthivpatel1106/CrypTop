@@ -1,0 +1,77 @@
+body
+{
+    font-family: 'Montserrat', sans-serif;
+}
+.navbar
+{
+    border-bottom: 1px solid lightgray;
+}
+.navbar-brand
+{
+    color:black;
+    font-size:24px;
+    font-weight: 700;
+}
+.main
+{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.workarea
+{
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    grid-template-areas: "sign log";
+    background-color: white;
+    filter:drop-shadow(2px 2px 3px lightgray);
+    height:400px;
+    width:1000px;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    .login-img
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-right:1px solid gray;
+    }
+    .login-card
+    {
+        margin: 0 20px;
+        .form-group
+        {
+            display:flex;
+            flex-direction: column;
+            row-gap: 10px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30%;
+            .form-control
+            {
+                border:2px solid black;
+                border-radius: 20px;
+                text-align: center;
+            }
+            .form-control:focus::placeholder
+            {
+                color:transparent;
+            }
+            .btn
+            {
+                border:2px solid black;
+                border-radius: 20px;
+                background-color: transparent;   
+            }
+            .btn:hover
+            {
+                border-color: gray;
+            }
+        }
+    }
+}

@@ -1,0 +1,120 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+  border-bottom: 1px solid lightgray;
+}
+
+.navbar-brand {
+  color: black;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 5%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 10px;
+}
+
+.workarea {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  -ms-grid-rows: 100%;
+      grid-template-rows: 100%;
+      grid-template-areas: "sign log";
+  background-color: white;
+  -webkit-filter: drop-shadow(2px 2px 3px lightgray);
+          filter: drop-shadow(2px 2px 3px lightgray);
+  height: 400px;
+  width: 1000px;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+}
+
+.workarea .login-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-right: 1px solid gray;
+}
+
+.workarea .login-card {
+  margin: 0 20px;
+}
+
+.workarea .login-card .form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 30%;
+}
+
+.workarea .login-card .form-group .form-control {
+  border: 2px solid black;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.workarea .login-card .form-group .form-control:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.workarea .login-card .form-group .form-control:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+.workarea .login-card .form-group .form-control:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+.workarea .login-card .form-group .form-control:focus::placeholder {
+  color: transparent;
+}
+
+.workarea .login-card .form-group .btn {
+  border: 2px solid black;
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+.workarea .login-card .form-group .btn:hover {
+  border-color: gray;
+}
+/*# sourceMappingURL=adminPage.css.map */

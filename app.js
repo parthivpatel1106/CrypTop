@@ -2,6 +2,7 @@ const express=require('express')
 //const {mongoClient, MongoClient}=require ('mongodb')
 const app=express()
 const mysql=require('mysql')
+const hbs=require('hbs')
 require('dotenv').config();
 const port=process.env.PORT
 //const mongoose=require('mongoose')
@@ -23,6 +24,18 @@ conn.connect(function(err){
         throw err;
     }
     console.log("MYSQL Connected")
+})
+
+app.set('view engine','hbs')
+app.use(express.static('./public'))
+
+app.get("/home",function(req,res){
+    res.render('landingPage')
+    //console.log('working')
+})
+
+app.get("/adminPanel",function(req,res){
+    res.render('adminPage')
 })
 // async function main() {
 //     const url = "mongodb+srv://UserDB:Crystleclown1106@cluster0.5jzb1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
