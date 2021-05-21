@@ -1,120 +1,119 @@
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "montserrat";
 }
 
 .navbar {
-  border-bottom: 1px solid lightgray;
+  background-color: #245894;
+  height: 70px;
 }
 
-.navbar-brand {
-  color: black;
+.navbar .navbar-brand {
+  color: white;
   font-size: 24px;
-  font-weight: 700;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-top: 5%;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  row-gap: 10px;
-}
-
-.workarea {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 50% 50%;
-      grid-template-columns: 50% 50%;
-  -ms-grid-rows: 100%;
-      grid-template-rows: 100%;
-      grid-template-areas: "sign log";
-  background-color: white;
-  -webkit-filter: drop-shadow(2px 2px 3px lightgray);
-          filter: drop-shadow(2px 2px 3px lightgray);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: lightgray;
+  width: 800px;
   height: 400px;
-  width: 1000px;
-  border: 1px solid lightgray;
-  border-radius: 20px;
 }
 
-.workarea .login-img {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-right: 1px solid gray;
+.tab-header {
+  height: 50px;
+  line-height: 50px;
 }
 
-.workarea .login-card {
-  margin: 0 20px;
-}
-
-.workarea .login-card .form-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  row-gap: 10px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-top: 30%;
-}
-
-.workarea .login-card .form-group .form-control {
-  border: 2px solid black;
-  border-radius: 20px;
+.tab-header div {
+  float: left;
+  width: 50%;
   text-align: center;
+  background-color: gray;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
 }
 
-.workarea .login-card .form-group .form-control:focus::-webkit-input-placeholder {
-  color: transparent;
+.tab-header > div.active {
+  background-color: lightgray;
+  color: black;
 }
 
-.workarea .login-card .form-group .form-control:focus:-ms-input-placeholder {
-  color: transparent;
+.tab-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
-.workarea .login-card .form-group .form-control:focus::-ms-input-placeholder {
-  color: transparent;
+.tab-data {
+  margin: 10px 0px;
 }
 
-.workarea .login-card .form-group .form-control:focus::placeholder {
-  color: transparent;
-}
-
-.workarea .login-card .form-group .btn {
-  border: 2px solid black;
+.tab-data input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
   border-radius: 20px;
-  background-color: transparent;
+  border: none;
+  outline: none;
 }
 
-.workarea .login-card .form-group .btn:hover {
-  border-color: gray;
+.tab-btn input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: white;
+  border: none;
+  background-color: #245894;
+  border-radius: 20px;
+  outline: none;
+}
+
+.tab-btn input:hover {
+  background-color: #152b44;
+}
+
+.tab-page .tab-right {
+  width: 350px;
+}
+
+.tab-page .tab-left {
+  width: 350px;
+}
+
+.tab-content > div.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  -webkit-column-gap: 60px;
+          column-gap: 60px;
+  width: 800px;
+}
+
+.tab-content > div {
+  display: none;
 }
 /*# sourceMappingURL=adminPage.css.map */

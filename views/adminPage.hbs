@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/adminPage.scss" type="text/css">
+    <link rel="stylesheet" href="/adminPage.css">
+    <title>ParkWell | Admin Sign Up</title>
+</head>
+<body>
+    <div class="header">
+        <nav class="navbar">
+            <a href="#" class="navbar-brand">ParkWell</a>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="tab-header">
+            <div class="active">Sign Up</div>
+            <div>Log In</div>
+        </div>
+        <div class="tab-content">
+            <div class="tab-page active">
+                <div class="tab-left">
+                    <h3>Welcome on board</h3>
+                    <h4>Create New Account</h4>
+                </div>
+                <div class="tab-right">
+                    <form action="#" method="post" class="signup-form">
+                        <div class="tab-data">
+                            <input type="email" name="email" id="uemail" placeholder="Email" required>
+                        </div>
+                        <div class="tab-data">
+                            <input type="password" name="pwd" id="upwd" placeholder="Password" required>
+                        </div>
+                        <div class="tab-data">
+                            <input type="password" name="cpwd" id="cupwd" placeholder="Confirm Password" required>
+                        </div>
+                        <div class="tab-btn">
+                            <input type="submit" value="Sign Up" id="signup-btn">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="tab-page">
+                <div class="tab-left">
+                    <h2>Login Here</h2>
+                    <h3>Welcome back!</h3>
+                </div>
+                <div class="tab-right">
+                    <form action="#" method="post" class="signup-form">
+                        <div class="tab-data">
+                            <input type="email" name="logemail" id="loguemail" placeholder="Email" required>
+                        </div>
+                        <div class="tab-data">
+                            <input type="password" name="logpwd" id="logupwd" placeholder="Password" required>
+                        </div>
+                        <div class="tab-btn">
+                            <input type="submit" value="Log In" id="login-btn">
+                        </div>
+                        <div class="mt-2">
+                            <a href="#">Forgot Password</a>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="adminPage.js"></script>
+    {{!-- jquery cdn for bootstrap starts --}}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    {{!-- jquery cdn for bootstrap ends --}}
+</body>
+</html>
