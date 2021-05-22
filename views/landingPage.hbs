@@ -10,27 +10,36 @@
     <title>Park Well</title>
 </head>
 <body>
+<section class="home bg-primary" id="home">
     <div class="header">
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-sm">
            <a href="#" class="navbar-brand">Park Well</a>
            <button class="navbar-toggler" data-toggle="collapse" data-target="#navMenu">
                <span class="navbar-toggler-icon"></span>
            </button>
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav ml-auto" >
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Home</a>
+                    <li class="nav-item active-link">
+                        <a href="#home" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Create New Account</a>
+                        <a href="#contactUs" class="nav-link">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">About</a>
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Login</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </div>
+    
+</section>
+        <section class="contactUs bg-success" id="contactUs"></section>
+        <section class="about bg-dark" id="about"></section>
+    <script src="landingPage.js"></script>
     {{!-- jquery cdn for bootstrap starts --}}
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

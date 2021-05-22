@@ -1,15 +1,16 @@
 const express=require('express')
 //const {mongoClient, MongoClient}=require ('mongodb')
 const app=express()
+const router = express.Router();
 const mysql=require('mysql')
 const hbs=require('hbs')
 require('dotenv').config();
 const port=process.env.PORT
 //const mongoose=require('mongoose')
-app.get("/",function(req,res){
-    //console.log(`"server start at port ${port}"`)
-    res.send("hello world")
-})
+// app.get("/",function(req,res){
+//     //console.log(`"server start at port ${port}"`)
+//     res.send("hello world")
+// })
 app.listen(port,()=>{
     console.log(`server started at port ${port}`)
 })
@@ -29,14 +30,18 @@ conn.connect(function(err){
 app.set('view engine','hbs')
 app.use(express.static('./public'))
 
-app.get("/home",function(req,res){
-    res.render('landingPage')
-    //console.log('working')
-})
+app.use("/",require('./routes/route'))
+app.use("/auth",require('./routes/auth'))
 
-app.get("/adminPanel",function(req,res){
-    res.render('adminPage')
-})
+
+// app.get("/home",function(req,res){
+//     res.render('landingPage')
+//     //console.log('working')
+// })
+
+// app.get("/adminPanel",function(req,res){
+//     res.render('adminPage')
+// })
 // async function main() {
 //     const url = "mongodb+srv://UserDB:Crystleclown1106@cluster0.5jzb1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 //     const client = new MongoClient(url,{useNewUrlParser: true,useUnifiedTopology: true} );
