@@ -12,7 +12,11 @@ router.get("/",(req,res) =>{
 router.get("/adminPanel",(req,res)=>{
     res.render('adminPage')
 })
-
-
+router.get('/signUp',(req,res)=>{
+    res.render('userCreateAccount')
+})
+router.get('/logIn',function(req,res){
+    res.render('userLoginAccount')
+})
 
 module.exports=router;

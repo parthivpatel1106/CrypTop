@@ -10,10 +10,10 @@
     <title>Park Well</title>
 </head>
 <body>
-<section class="home bg-primary" id="home">
+<section class="home" id="home">
     <div class="header">
         <nav class="navbar navbar-expand-sm">
-           <a href="#" class="navbar-brand">Park Well</a>
+           <a href="#" class="navbar-brand">Crypt.Op</a>
            <button class="navbar-toggler" data-toggle="collapse" data-target="#navMenu">
                <span class="navbar-toggler-icon"></span>
            </button>
@@ -23,22 +23,103 @@
                         <a href="#home" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#contactUs" class="nav-link">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
                         <a href="#about" class="nav-link">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Login</a>
+                        <a href="#contactUs" class="nav-link">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/logIn" class="nav-link">Login</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </div>
-    
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-5">
+                Analytic tool for Cryptocurrencies.
+                Get all insights and news of Cryptoworld at one stop.
+            </h1>
+            <p class="lead text-center">
+                <a href="/signUp" class="signup-btn btn btn-lg text-uppercase" role="button">Sign Up</a>
+            </p>
+        </div>
+    </div>
+    <div class="crypto-logos">
+        <div class="cryptocoin-logo">
+            <img src="/Cryptocoin_logos/bitcoin-logo.png" alt="bitcoin">
+            <p class="text-center mt-2">Bitcoin</p>
+        </div>
+        <div class="cryptocoin-logo">
+            <img src="/Cryptocoin_logos/ethereum-logo.png" alt="ethereum">
+            <p class="text-center mt-2">Ethereum</p>
+        </div>
+        <div class="cryptocoin-logo">
+            <img src="/Cryptocoin_logos/dogecoin-logo.png" alt="dogecoin">
+            <p class="text-center mt-2">Dogecoin</p>
+        </div>
+        <div class="cryptocoin-logo">
+            <img src="/Cryptocoin_logos/binance-coin-bnb-logo.png" alt="binance">
+            <p class="text-center mt-2">Binanace</p>
+        </div>
+        <div class="cryptocoin-logo">
+            <img src="/Cryptocoin_logos/polygon-matic-logo.png" alt="polygon-matic">
+            <p class="text-center mt-2">Polygon-matic</p>
+        </div>
+        <div class="cryptocoin-logo">
+            <img src="/Cryptocoin_logos/tether-usdt-logo.png" alt="tether">
+            <p class="text-center mt-2">Tether</p>
+        </div>
+    </div>
 </section>
-        <section class="contactUs bg-success" id="contactUs"></section>
-        <section class="about bg-dark" id="about"></section>
+<section class="about" id="about">
+    <div class="about-page">
+        <div class="cards card-1">
+            <img src="/About_icons/equalizer.png" alt="equalizer">
+            <p>Categorised data according to your requirement and get accurate cryptocurrency market trends. </p>
+        </div>
+        <div class="cards card-2">
+            <img src="/About_icons/graph.png" alt="graph">
+            <p>Get the cryptocurrency market data with charts by your selected time slot.</p>
+        </div>
+         <div class="cards card-3">
+            <img src="/About_icons/trust.png" alt="trust">
+            <p>Get the most trusted cryptocurrency market data provider in the industry.</p>
+        </div>
+    </div>
+    <div class="api-info">
+        <img src="/About_icons/api.png" alt="api">
+        <p>We are using <a href="#">Coin Market Cap</a> API to get most secure and trusted crypto market data.</p>
+    </div>
+</section>
+<section class="contactUs" id="contactUs">
+    <div class="container">
+        <div class="card-title"><h3 class="text-center">Contact Us</h3></div>
+        <div class="contact-card">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input class="form-control" type="text" name="username" id="uname" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="usermail" id="umail" placeholder="Email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea class="form-control" name="usermessage" id="umessage" cols="30" rows="7" placeholder="Type Message here"></textarea>
+                </div>
+                <input type="button" value="Send" class="btn mb-2">
+            </form>
+        </div>
+    </div>
+</section>
+{{!-- <div class="footer">
+    <h4 class="footerText">By Crypt.Op</h4>
+</div> --}}
+
+    {{!-- script strats --}}
     <script src="landingPage.js"></script>
     {{!-- jquery cdn for bootstrap starts --}}
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

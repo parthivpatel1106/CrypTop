@@ -1,5 +1,15 @@
+$nav-color:#ffffff;
+$body-color:#f8f9fa;
+$btn-color:#17a2b8;
+$gray-dark-font:#343a40;
+$gray-normal-font:#6c757d;
+$box-shadow:#e1e5ea;
+$nav-links:#313c47;
+$button-hover-color:#196570;
+$crypto-names:#b2b2b2;
 body{
     font-family: "montserrat";
+    background-color: $body-color;
 }
 section
 {
@@ -8,25 +18,186 @@ section
 }
 html{
     scroll-behavior: smooth;
+    scroll-padding-top: 70px;
 }
 .navbar
 {
     width:100%;
-    background-color:#245894;
+    background-color:$nav-color;
     height:70px;
     position: fixed;
+    z-index: 1;
+    filter: drop-shadow(1px 2px 1px $box-shadow);
     .navbar-brand
     {
-        color:white;
+        color:black;
         font-size: 24px;
+        outline:none;
     }
     .nav-link
     {
-        color:white;
+        color:$nav-links;
+        text-transform: uppercase;
     }
     .navbar-nav >li.active-link
     {
-        background-color:#112a47;
+        background-color:$box-shadow;
         border-radius: 10px;
     }
 }
+.jumbotron
+{
+    background:none;
+    .container
+    {
+        padding:0px 15px;
+        h1
+        {
+            text-align: center;
+            max-width: 800px;
+            font-weight: 400;
+            line-height: 3rem;
+            margin:3rem auto;
+        }
+        .lead
+        {
+            margin-top: 3rem;
+            .signup-btn
+            {
+                background-color: $btn-color;
+                color:white;
+            }
+            .signup-btn:hover{
+                background-color: $button-hover-color;
+            }    
+        }
+    } 
+}
+.crypto-logos
+{
+    display:flex;
+    flex-direction: row;
+    column-gap: 40px;
+    margin:30px;
+    align-items: center;
+    justify-content: center;
+    .cryptocoin-logo
+    {
+        p
+        {
+            color:$crypto-names;
+            font-weight: 500;
+        }
+        img
+        {
+            height: 100px;
+            width:100px;
+        }
+    }
+}
+.about-page
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    flex-direction: row;
+    column-gap: 80px;
+    .cards
+    {
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+        height:300px;
+        width:230px;
+        border-radius: 10px;
+        background-color: #ffffff;
+        filter: drop-shadow(2px 2px 3px $box-shadow);
+        padding: 30px;
+        align-items: center;
+        //justify-content: center;
+        text-align: center;
+        img{
+            height: 50px;
+            width:50px;
+        }
+        p{
+            color:$gray-normal-font;
+        }
+    }
+}
+.api-info
+{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    background-color: #ffffff;
+    filter: drop-shadow(2px 2px 3px $box-shadow);
+    border-radius: 10px;
+    margin:0 250px;
+    padding: 10px;
+    img{
+        height:100px;
+        width:100px;
+    }
+    p
+    {
+        //margin-top: 6px;
+        width:300px;
+        color:$gray-normal-font;
+        a{
+            text-decoration: none;
+            color:$gray-dark-font;
+            font-weight: bold;
+        }
+    }
+}
+.contactUs
+{
+    .card-title
+    {
+        h3
+        {
+            //text-transform: uppercase;
+            color:$gray-dark-font;
+        }
+    }
+    .container
+    {
+        padding-top: 10px;
+        .contact-card
+        {
+            background-color: #ffffff;
+            filter: drop-shadow(2px 2px 3px $box-shadow);
+            border-radius: 10px;
+            padding:20px;
+            margin:0px 130px;
+            .form-group
+            {
+                .form-control
+                {
+                    background-color: $body-color;
+                }
+                
+            }
+            .btn
+            {
+                color:white;
+                background-color: $btn-color;
+            }
+            .btn:hover
+            {
+                background-color:$button-hover-color;
+            }
+        }
+    }
+}
+// .footer
+// {
+//     .footerText
+//     {
+//         margin-left: 250px;
+//     }
+// }
