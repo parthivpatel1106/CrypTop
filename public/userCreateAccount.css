@@ -30,7 +30,7 @@ body {
 }
 
 .main .signup-card {
-  margin: 80px;
+  margin: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -43,10 +43,11 @@ body {
   -webkit-column-gap: 100px;
           column-gap: 100px;
   background-color: #ffffff;
+  border: 3px solid #e1e5ea;
   -webkit-filter: drop-shadow(2px 2px 2px #e1e5ea);
           filter: drop-shadow(2px 2px 2px #e1e5ea);
   border-radius: 10px;
-  padding: 30px;
+  padding: 20px;
 }
 
 .main .signup-card .form-group .form-control {
@@ -65,5 +66,9 @@ body {
 
 .main .signup-card .card-title h4 {
   font-weight: normal;
+}
+
+.validation {
+  width: 550px;
 }
 /*# sourceMappingURL=userCreateAccount.css.map */

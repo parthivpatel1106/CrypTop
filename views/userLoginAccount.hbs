@@ -34,7 +34,7 @@
                 <h3 class="text-center">Login here</h3>
                 <h4 class="text-center">Welcome back!</h4>
             </div>
-            <form action="#" method="POST">
+            <form action="/auth/user_login" method="POST">
                 <div class="form-group">
                     <input type="email" class="form-control" name="useremail" id="umail" placeholder="Email" required>
                 </div>
@@ -42,9 +42,12 @@
                     <input type="password" class="form-control" name="userpassword" id="upwd" placeholder="Password" required>
                 </div>
                 <div class="form-group">
-                    <input type="button" value="Log In" class="btn btn-lg">
+                    <input type="submit" value="Log In" class="btn btn-lg">
                 </div>
                 <a href="#" class="text-decoration-none">Forgot Password</a>
+                <div class="validation">
+                    <p class="text-danger">{{message}}</p>
+                </div>
             </form>
         </div>
     </div>

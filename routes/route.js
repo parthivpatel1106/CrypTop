@@ -1,4 +1,7 @@
 const express = require("express");
+const bodyParser=require("body-parser")
+var jsonParser=bodyParser.json()
+var urlEncoder=bodyParser.urlencoded({extended:true})
 const router = express.Router();
 
 

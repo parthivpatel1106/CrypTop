@@ -26,7 +26,7 @@ body {
 }
 
 .main {
-  padding-top: 70px;
+  padding-top: 30px;
 }
 
 .main .signup-card {
@@ -43,6 +43,7 @@ body {
   -webkit-column-gap: 100px;
           column-gap: 100px;
   background-color: #ffffff;
+  border: 3px solid #e1e5ea;
   -webkit-filter: drop-shadow(2px 2px 2px #e1e5ea);
           filter: drop-shadow(2px 2px 2px #e1e5ea);
   border-radius: 10px;
@@ -76,5 +77,9 @@ body {
 
 .main .signup-card .card-title h4 {
   font-weight: normal;
+}
+
+.validation {
+  width: 550px;
 }
 /*# sourceMappingURL=userLoginAccount.css.map */
