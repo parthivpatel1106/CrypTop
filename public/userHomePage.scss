@@ -1,0 +1,131 @@
+$nav-color:#ffffff;
+$body-color:#f8f9fa;
+$btn-color:#17a2b8;
+$gray-dark-font:#343a40;
+$gray-normal-font:#6c757d;
+$box-shadow:#e1e5ea;
+$nav-links:#313c47;
+$button-hover-color:#196570;
+$crypto-names:#b2b2b2;
+body{
+    font-family: "montserrat";
+    background-color: $body-color;
+    overflow-x: hidden;
+}
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+}
+.navbar
+{
+    width:100%;
+    background-color:$nav-color;
+    height:70px;
+    position: fixed;
+    z-index: 1;
+    filter: drop-shadow(1px 2px 1px $box-shadow);
+    .navbar-brand
+    {
+        color:black;
+        font-size: 24px;
+        outline:none;
+    }
+    .nav-link
+    {
+        color:$nav-links;
+        text-transform: uppercase;
+    }
+}
+.page
+{
+    padding-top: 80px;
+    margin-left: 10px;
+    margin-right: 30px;
+    height:100vh;
+    //width:100%;
+    display:grid;
+    grid-template-columns: 10% 45% 45%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: "sidebar main main"
+    "sidebar content1 content2";
+    grid-gap: 0.7rem;
+}
+.sidebar
+{
+    background-color: #ffffff;
+    filter: drop-shadow(2px 2px 3px $box-shadow);
+    border-radius: 10px;
+    grid-area: sidebar;
+    text-align: center;
+}
+.main
+{
+    background-color: #ffffff;
+    border-radius: 10px;
+    filter: drop-shadow(2px 2px 3px $box-shadow);
+    grid-area:main;
+    text-align: center;
+}
+.content1
+{
+    background-color: #ffffff;
+    border-radius: 10px;
+    filter: drop-shadow(2px 2px 3px $box-shadow);
+    grid-area:content1;
+    text-align: center;
+}
+.content2
+{
+    background-color: #ffffff;
+    border-radius: 10px;
+    filter: drop-shadow(2px 2px 3px $box-shadow);
+    grid-area:content2;
+    text-align: center;
+}
+.cards
+{
+    display:flex;
+    flex-direction: column;
+    row-gap: 5px;
+    .card
+    {
+        border-width:0px;
+        background:linear-gradient(to right,#17a2b8 50%,white 50%);
+        transition: all .5s ease-out;
+        background-size: 200% 100%;
+        background-position: right bottom;
+        outline:none;
+        width:100%;
+        .crypto-link
+        {
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-width: 0px;
+            margin-top:1rem;
+            text-decoration: none;
+            img
+            {
+                height:45x;
+                width:45px;
+            }
+            p
+            {
+                color:$gray-dark-font;
+                font-weight: 500;
+                font-size: 14px;
+            }
+        }
+    }
+    .card:hover{
+        background-position: left bottom; 
+        .crypto-link
+        {
+            p
+            {
+                color:white;
+            }
+        }   
+    }
+}

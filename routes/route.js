@@ -22,4 +22,7 @@ router.get('/logIn',function(req,res){
     res.render('userLoginAccount')
 })
 
+router.get('/home',(req,res)=>{
+    res.render('userHomePage')
+})
 module.exports=router;

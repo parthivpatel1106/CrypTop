@@ -1,0 +1,154 @@
+body {
+  font-family: "montserrat";
+  background-color: #f8f9fa;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #ffffff;
+  height: 70px;
+  position: fixed;
+  z-index: 1;
+  -webkit-filter: drop-shadow(1px 2px 1px #e1e5ea);
+          filter: drop-shadow(1px 2px 1px #e1e5ea);
+}
+
+.navbar .navbar-brand {
+  color: black;
+  font-size: 24px;
+  outline: none;
+}
+
+.navbar .nav-link {
+  color: #313c47;
+  text-transform: uppercase;
+}
+
+.page {
+  padding-top: 80px;
+  margin-left: 10px;
+  margin-right: 30px;
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 10% 45% 45%;
+      grid-template-columns: 10% 45% 45%;
+  -ms-grid-rows: 50% 50%;
+      grid-template-rows: 50% 50%;
+      grid-template-areas: "sidebar main main" "sidebar content1 content2";
+  grid-gap: 0.7rem;
+}
+
+.sidebar {
+  background-color: #ffffff;
+  -webkit-filter: drop-shadow(2px 2px 3px #e1e5ea);
+          filter: drop-shadow(2px 2px 3px #e1e5ea);
+  border-radius: 10px;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: sidebar;
+  text-align: center;
+}
+
+.main {
+  background-color: #ffffff;
+  border-radius: 10px;
+  -webkit-filter: drop-shadow(2px 2px 3px #e1e5ea);
+          filter: drop-shadow(2px 2px 3px #e1e5ea);
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: main;
+  text-align: center;
+}
+
+.content1 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  -webkit-filter: drop-shadow(2px 2px 3px #e1e5ea);
+          filter: drop-shadow(2px 2px 3px #e1e5ea);
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: content1;
+  text-align: center;
+}
+
+.content2 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  -webkit-filter: drop-shadow(2px 2px 3px #e1e5ea);
+          filter: drop-shadow(2px 2px 3px #e1e5ea);
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: content2;
+  text-align: center;
+}
+
+.cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 5px;
+}
+
+.cards .card {
+  border-width: 0px;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #17a2b8), color-stop(50%, white));
+  background: linear-gradient(to right, #17a2b8 50%, white 50%);
+  -webkit-transition: all .5s ease-out;
+  transition: all .5s ease-out;
+  background-size: 200% 100%;
+  background-position: right bottom;
+  outline: none;
+  width: 100%;
+}
+
+.cards .card .crypto-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-width: 0px;
+  margin-top: 1rem;
+  text-decoration: none;
+}
+
+.cards .card .crypto-link img {
+  height: 45x;
+  width: 45px;
+}
+
+.cards .card .crypto-link p {
+  color: #343a40;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.cards .card:hover {
+  background-position: left bottom;
+}
+
+.cards .card:hover .crypto-link p {
+  color: white;
+}
+/*# sourceMappingURL=userHomePage.css.map */

@@ -5,12 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="/landingPage.scss" type="text/css">
-    <link rel="stylesheet" href="/landingPage.css">
+    <link rel="stylesheet" href="/userHomePage.scss" type="text/css">
+    <link rel="stylesheet" href="/userHomePage.css">
     <title>Crypt.Op</title>
 </head>
 <body>
-<section class="home" id="home">
     <div class="header">
         <nav class="navbar navbar-expand-sm">
            <a href="#" class="navbar-brand">Crypt.Op</a>
@@ -23,13 +22,60 @@
                         <a href="#home" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
+                        <a href="/auth/logOut" class="nav-link">Profile</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="/auth/logOut" class="nav-link">Logout</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </div>
-</section>
+<div class="page">
+    <div class="sidebar">
+        <div class="cards">
+            <div class="card card1">
+                <a href="#" class="crypto-link">
+                    <img src="/Cryptocoin_logos/bitcoin-logo.png" alt="bitcoin">
+                    <p class="text-center mt-2">Bitcoin</p>
+                </a>
+            </div>
+            <div class="card card2"> 
+                <a href="#" class="crypto-link">
+                    <img src="/Cryptocoin_logos/ethereum-logo.png" alt="ethereum">
+                    <p class="text-center mt-2">Ethereum</p>
+                </a></div>
+            <div class="card card3"> 
+                <a href="#" class="crypto-link">
+                    <img src="/Cryptocoin_logos/dogecoin-logo.png" alt="dogecoin">
+                    <p class="text-center mt-2">Dogecoin</p>
+                </a></div>
+            <div class="card card4"> 
+                <a href="#" class="crypto-link">
+                    <img src="/Cryptocoin_logos/binance-coin-bnb-logo.png" alt="binance">
+                    <p class="text-center mt-2">Binanace</p>
+                </a></div>
+            <div class="card card5">
+                 <a href="#" class="crypto-link">
+                    <img src="/Cryptocoin_logos/polygon-matic-logo.png" alt="polygon-matic">
+                    <p class="text-center mt-2">Polygon-matic</p>
+                </a>
+            </div>
+            {{!-- <div class="card card6">
+                 <a href="#" class="crypto-link">
+                    <img src="/Cryptocoin_logos/tether-usdt-logo.png" alt="tether">
+                     <p class="text-center mt-2">Tether</p>
+                </a>
+            </div> --}}
+        </div>
+    </div>
+    <div class="main">main</div>
+    <div class="content1">news</div>
+    <div class="content2">white paper</div>
+</div>
+
+
+
 {{!-- <div class="footer">
     <h4 class="footerText">By Crypt.Op</h4>
 </div> --}}
@@ -41,5 +87,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     {{!-- jquery cdn for bootstrap ends --}}
+
+    {{!-- react script starts --}}
+    <script src="https://unpkg.com/react@16.4.1/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16.4.1/umd/react-dom.production.min.js"></script>
+    {{!-- reaxt script ends --}}
 </body>
 </html>
