@@ -39,93 +39,67 @@ html{
 .page
 {
     padding-top: 80px;
-    margin-left: 10px;
-    margin-right: 30px;
-    height:100vh;
-    //width:100%;
-    display:grid;
-    grid-template-columns: 10% 45% 45%;
-    grid-template-rows: 50% 50%;
-    grid-template-areas: "sidebar main main"
-    "sidebar content1 content2";
-    grid-gap: 0.7rem;
-}
-.sidebar
-{
-    background-color: #ffffff;
-    filter: drop-shadow(2px 2px 3px $box-shadow);
-    border-radius: 10px;
-    grid-area: sidebar;
-    text-align: center;
-}
-.main
-{
-    background-color: #ffffff;
-    border-radius: 10px;
-    filter: drop-shadow(2px 2px 3px $box-shadow);
-    grid-area:main;
-    text-align: center;
-}
-.content1
-{
-    background-color: #ffffff;
-    border-radius: 10px;
-    filter: drop-shadow(2px 2px 3px $box-shadow);
-    grid-area:content1;
-    text-align: center;
-}
-.content2
-{
-    background-color: #ffffff;
-    border-radius: 10px;
-    filter: drop-shadow(2px 2px 3px $box-shadow);
-    grid-area:content2;
-    text-align: center;
-}
-.cards
-{
-    display:flex;
-    flex-direction: column;
-    row-gap: 5px;
-    .card
+    .work-area
     {
-        border-width:0px;
-        background:linear-gradient(to right,#17a2b8 50%,white 50%);
-        transition: all .5s ease-out;
-        background-size: 200% 100%;
-        background-position: right bottom;
-        outline:none;
+        margin-top: 50px;
+        h3{
+            letter-spacing: 2px;
+        }
+    }
+    .stats
+    {
+        margin:0px 70px;
+        background-color: white;
+        filter: drop-shadow(2px 2px 2px $box-shadow);
+        border-radius: 10px;
+        border: 3px solid white;
+    }
+}
+.wrap{
+    margin:0px 150px;
+    .form-group
+    {
         width:100%;
-        .crypto-link
+        position: relative;
+        display:flex;
+        flex-direction: row;
+        border: 3px solid $btn-color;
+        border-radius: 8px;
+        .form-control
         {
-            display:flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border-width: 0px;
-            margin-top:1rem;
-            text-decoration: none;
-            img
-            {
-                height:45x;
-                width:45px;
-            }
-            p
-            {
-                color:$gray-dark-font;
-                font-weight: 500;
-                font-size: 14px;
+            width:100%;
+            border: none;
+        }
+        .searchBtn
+        {
+            //border: 3px solid $btn-color;
+            //border-left:none;
+            background-color: $btn-color;
+            color:white;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+        }
+        .searchBtn:hover
+        {
+            background-color: $button-hover-color;
+        }
+    }
+    .form-group:hover
+    {
+        border-color: $button-hover-color;
+    }
+}
+table{
+    tbody{
+        tr{
+            td{
+               font-weight: 500;
+               a
+               {
+                    text-decoration: none;
+               } 
             }
         }
     }
-    .card:hover{
-        background-position: left bottom; 
-        .crypto-link
-        {
-            p
-            {
-                color:white;
-            }
-        }   
-    }
 }
+

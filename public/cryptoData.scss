@@ -1,0 +1,120 @@
+$nav-color:#ffffff;
+$body-color:#f8f9fa;
+$btn-color:#17a2b8;
+$gray-dark-font:#343a40;
+$gray-normal-font:#6c757d;
+$box-shadow:#e1e5ea;
+$nav-links:#313c47;
+$button-hover-color:#196570;
+$crypto-names:#b2b2b2;
+body{
+    font-family: "montserrat";
+    background-color: $body-color;
+    overflow-x: hidden;
+}
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+}
+.header
+{
+    position: fixed;
+    z-index: 1;
+}
+.navbar
+{
+    width:100%;
+    background-color:$nav-color;
+    height:70px;
+    position: fixed;
+    z-index: 1;
+    filter: drop-shadow(1px 2px 1px $box-shadow);
+    .navbar-brand
+    {
+        color:black;
+        font-size: 24px;
+        outline:none;
+    }
+    .nav-link
+    {
+        color:$nav-links;
+        text-transform: uppercase;
+    }
+}
+.page
+{
+    margin:0px 20px;
+}
+.container
+{
+    padding-top: 80px;
+    display:grid;
+    grid-gap: 10px;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: 50% 50%;
+    height: 100vh;
+    width:100%;
+    grid-template-areas: "charts charts"
+    "con1 con2";
+    .chart
+    {
+        filter: drop-shadow(1px 2px 5px $box-shadow);
+        grid-area:charts;
+        background-color:white;
+        border-radius: 20px;
+    }
+}
+.content
+{
+    background-color:white;
+    filter: drop-shadow(1px 2px 5px $box-shadow);
+    border-radius: 20px;
+    padding:10px;
+        .btn
+        {
+            display:block;
+            margin: 0 auto;
+            background-color: $btn-color;
+            color:white;
+            outline: none;
+        }
+        .btn:hover
+        {
+            background-color: $button-hover-color;
+        }
+    .content1
+    {
+        grid-area: con1;
+    }
+    .content2
+    {
+        grid-area: con2;
+    }
+    h4
+    {
+        font-size: 18px;
+    }
+}
+.priceBox
+{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin:0px 40px;
+    .cryptoPrice
+    {
+        margin-top: 9px;
+    }
+}
+.percentStats
+{
+    margin:0px 20px;
+    tbody
+    {
+        td{
+            font-weight: 500;
+            text-align: center;
+        }
+    }
+}

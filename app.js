@@ -51,28 +51,9 @@ app.use(cookieParser());
 // app.get("/adminPanel",function(req,res){
 //     res.render('adminPage')
 // })
-// async function main() {
-//     const url = "mongodb+srv://UserDB:Crystleclown1106@cluster0.5jzb1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-//     const client = new MongoClient(url,{useNewUrlParser: true,useUnifiedTopology: true} );
-//     try{
-//         console.log("MongoDB connected")
-//         await client.connect()
-//         await listDatabases(client)
-//     }
-//     catch(e){
-//         console.log(e);
-//     }
-//     finally{
-//         await client.close();
-//     }
-// }
-// main().catch(console.error);
+// 
 
-// async function listDatabases(client){
-//     const dbList= await client.db().admin().listDatabases();
 
-//     console.log("databases:")
-//     dbList.databases.forEach(db=>{
-//         console.log(`-${db.name}`)
-//     })
-// }
+
+
+//api call

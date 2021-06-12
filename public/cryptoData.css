@@ -1,0 +1,132 @@
+body {
+  font-family: "montserrat";
+  background-color: #f8f9fa;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+.header {
+  position: fixed;
+  z-index: 1;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #ffffff;
+  height: 70px;
+  position: fixed;
+  z-index: 1;
+  -webkit-filter: drop-shadow(1px 2px 1px #e1e5ea);
+          filter: drop-shadow(1px 2px 1px #e1e5ea);
+}
+
+.navbar .navbar-brand {
+  color: black;
+  font-size: 24px;
+  outline: none;
+}
+
+.navbar .nav-link {
+  color: #313c47;
+  text-transform: uppercase;
+}
+
+.page {
+  margin: 0px 20px;
+}
+
+.container {
+  padding-top: 80px;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  -ms-grid-rows: 50% 50%;
+      grid-template-rows: 50% 50%;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  height: 100vh;
+  width: 100%;
+      grid-template-areas: "charts charts" "con1 con2";
+}
+
+.container .chart {
+  -webkit-filter: drop-shadow(1px 2px 5px #e1e5ea);
+          filter: drop-shadow(1px 2px 5px #e1e5ea);
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: charts;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.content {
+  background-color: white;
+  -webkit-filter: drop-shadow(1px 2px 5px #e1e5ea);
+          filter: drop-shadow(1px 2px 5px #e1e5ea);
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.content .btn {
+  display: block;
+  margin: 0 auto;
+  background-color: #17a2b8;
+  color: white;
+  outline: none;
+}
+
+.content .btn:hover {
+  background-color: #196570;
+}
+
+.content .content1 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: con1;
+}
+
+.content .content2 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: con2;
+}
+
+.content h4 {
+  font-size: 18px;
+}
+
+.priceBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0px 40px;
+}
+
+.priceBox .cryptoPrice {
+  margin-top: 9px;
+}
+
+.percentStats {
+  margin: 0px 20px;
+}
+
+.percentStats tbody td {
+  font-weight: 500;
+  text-align: center;
+}
+/*# sourceMappingURL=cryptoData.css.map */

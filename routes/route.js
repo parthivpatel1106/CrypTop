@@ -25,4 +25,8 @@ router.get('/logIn',function(req,res){
 router.get('/home',(req,res)=>{
     res.render('userHomePage')
 })
+
+// router.get('/cryptoData',(req,res)=>{
+//     res.render('cryptoData')
+// })
 module.exports=router;

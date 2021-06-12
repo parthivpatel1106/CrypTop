@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
     <link rel="stylesheet" href="/userHomePage.scss" type="text/css">
     <link rel="stylesheet" href="/userHomePage.css">
     <title>Crypt.Op</title>
@@ -31,66 +33,87 @@
             </div>
         </nav>
     </div>
-<div class="page">
-    <div class="sidebar">
-        <div class="cards">
-            <div class="card card1">
-                <a href="#" class="crypto-link">
-                    <img src="/Cryptocoin_logos/bitcoin-logo.png" alt="bitcoin">
-                    <p class="text-center mt-2">Bitcoin</p>
-                </a>
+    <div class="page">
+            <div class="wrap mt-3">
+            <div class="form-group">
+                <input type="search" name="search" id="searchItem" class="form-control" placeholder="search cryptocurrency here">
+                <button type="submit" class="btn searchBtn">
+                    <i class="fa fa-search"></i>
+                </button>
             </div>
-            <div class="card card2"> 
-                <a href="#" class="crypto-link">
-                    <img src="/Cryptocoin_logos/ethereum-logo.png" alt="ethereum">
-                    <p class="text-center mt-2">Ethereum</p>
-                </a></div>
-            <div class="card card3"> 
-                <a href="#" class="crypto-link">
-                    <img src="/Cryptocoin_logos/dogecoin-logo.png" alt="dogecoin">
-                    <p class="text-center mt-2">Dogecoin</p>
-                </a></div>
-            <div class="card card4"> 
-                <a href="#" class="crypto-link">
-                    <img src="/Cryptocoin_logos/binance-coin-bnb-logo.png" alt="binance">
-                    <p class="text-center mt-2">Binanace</p>
-                </a></div>
-            <div class="card card5">
-                 <a href="#" class="crypto-link">
-                    <img src="/Cryptocoin_logos/polygon-matic-logo.png" alt="polygon-matic">
-                    <p class="text-center mt-2">Polygon-matic</p>
-                </a>
             </div>
-            {{!-- <div class="card card6">
-                 <a href="#" class="crypto-link">
-                    <img src="/Cryptocoin_logos/tether-usdt-logo.png" alt="tether">
-                     <p class="text-center mt-2">Tether</p>
-                </a>
-            </div> --}}
+        <div class="work-area">
+            <h3 class="text-center text-uppercase">Top Cryptocurrencies trends</h3>
         </div>
-    </div>
-    <div class="main">main</div>
-    <div class="content1">news</div>
-    <div class="content2">white paper</div>
-</div>
-
-
-
-{{!-- <div class="footer">
-    <h4 class="footerText">By Crypt.Op</h4>
-</div> --}}
-
-    {{!-- script strats --}}
-    {{!-- <script src="landingPage.js"></script> --}}
-    {{!-- jquery cdn for bootstrap starts --}}
+        <div class="stats">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Cryptocurrency Name</th>
+                        <th scope="col">Acronym</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Market Cap</th>
+                        <th scope="col">Increament/Decreament(Last 1h)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope='row'>1</th>
+                        <td><a href="/auth/bitcoinData">Bitcoin</a></td>
+                        <td>BTC</td>
+                        <td>$ {{bitcoinPrice}}</td>
+                        <td>$ {{bitcoinMarketCap}}</td>
+                        <td class="percentChange">{{bitcoinPercentChange}} %</td>
+                    </tr>
+                    <tr>
+                        <th scope='row'>2</th>
+                        <td><a href="#">Ethereum</a></td>
+                        <td>ETH</td>
+                        <td>$ {{ethereumPrice}}</td>
+                        <td>$ {{ethereumMarketCap}}</td>
+                        <td class="percentChange">{{ethereumPercentChange}} %</td>
+                    </tr>
+                    <tr>
+                        <th scope='row'>3</th>
+                        <td><a href="#">Tether</a></td>
+                        <td>USDT</td>
+                        <td>$ {{tetherPrice}}</td>
+                        <td>$ {{tetherMarketCap}}</td>
+                        <td class="percentChange">{{tetherPercentChange}} %</td>
+                    </tr>
+                    <tr>
+                        <th scope='row'>4</th>
+                        <td><a href="#">Binance Coin</a></td>
+                        <td>BNB</td>
+                        <td>$ {{binanceCoinPrice}}</td>
+                        <td>$ {{binanceCoinMarketCap}}</td>
+                        <td class="percentChange">{{binanceCoinPercentChange}} %</td>
+                    </tr>
+                    <tr>
+                        <th scope='row'>5</th>
+                        <td><a href="#">Cardano</a></td>
+                        <td>ADA</td>
+                        <td>$ {{cardanoPrice}}</td>
+                        <td>$ {{cardanoMarketCap}}</td>
+                        <td class="percentChange">{{cardanoPercentChange}} %</td>
+                    </tr>
+                    {{!-- <tr>
+                        <th scope='row'>6</th>
+                        <td><a href="#">Dogecoin</a></td>
+                        <td>DOGE</td>
+                        <td>{{Price}}</td>
+                        <td>{{marketCap}}</td>
+                        <td>{{percentage}}</td>
+                    </tr> --}}
+                </tbody>
+            </table>   
+            </div>
+        </div>
+    <script src="/userHomePage.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     {{!-- jquery cdn for bootstrap ends --}}
-
-    {{!-- react script starts --}}
-    <script src="https://unpkg.com/react@16.4.1/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@16.4.1/umd/react-dom.production.min.js"></script>
-    {{!-- reaxt script ends --}}
 </body>
 </html>

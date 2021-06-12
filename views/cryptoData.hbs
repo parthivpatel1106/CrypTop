@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <link rel="stylesheet" href="/cryptoData.scss" type="text/css">
+    <link rel="stylesheet" href="/cryptoData.css">
+    <title>Crypt.Op</title>
+</head>
+<body>
+    <div class="header">
+        <nav class="navbar navbar-expand-sm">
+           <a href="#" class="navbar-brand">Crypt.Op</a>
+           <button class="navbar-toggler" data-toggle="collapse" data-target="#navMenu">
+               <span class="navbar-toggler-icon"></span>
+           </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ml-auto" >
+                    <li class="nav-item active-link">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/auth/logOut" class="nav-link">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/auth/logOut" class="nav-link">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="page">
+        <div class="container">
+            <div class="chart"></div>
+            <div class="content content1">
+                <h4 class="text-center">Price:</h4>
+                <div class="priceBox">
+                    <h3 class="cryptoPrice text-center font-weight-bold" id="priceConvert">$ {{price}}</h3>
+                    <button class="btn btn-sm" id="convertBtn">Price in INR</button>
+                </div>
+                <p class="text-center"><small class="text-danger" id="notice"></small></p>
+                <h4 class="text-center">Percent Change:</h4>
+                <div class="percentStats">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-center">Last 1 Hour(%)</th>
+                            <th scope="col" class="text-center">Last 24 Hour(%)</th>
+                            <th scope="col" class="text-center">Last 1 Week(%)</th>
+                        </tr>
+                        <tbody>
+                            <tr>
+                                <td scope="row" class="percentData">{{$1h_percent}}</td>
+                                <td class="percentData">{{$24h_percent}}</td>
+                                <td class="percentData">{{$7d_percent}}</td>
+                            </tr>
+                        </tbody>
+                    </thead>
+                </table>
+                </div>
+            </div>
+            <div class="content content2"></div>
+        </div>
+    </div>
+    <script src="/cryptoData.js"></script>
+    {{!-- bootstrap js cdn starts --}}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    {{!-- jquery cdn for bootstrap ends --}}
+</body>
+</html>
