@@ -1,0 +1,116 @@
+body {
+  font-family: "montserrat";
+  background-color: #f8f9fa;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+.header {
+  position: fixed;
+  z-index: 1;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #ffffff;
+  height: 70px;
+  position: fixed;
+  z-index: 1;
+  -webkit-filter: drop-shadow(1px 2px 1px #e1e5ea);
+          filter: drop-shadow(1px 2px 1px #e1e5ea);
+}
+
+.navbar .navbar-brand {
+  color: black;
+  font-size: 24px;
+  outline: none;
+}
+
+.navbar .nav-link {
+  color: #313c47;
+  text-transform: uppercase;
+}
+
+.main {
+  padding-top: 80px;
+}
+
+.main .container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 50% 50%;
+      grid-template-rows: 50% 50%;
+  -ms-grid-columns: 30% 70%;
+      grid-template-columns: 30% 70%;
+      grid-template-areas: "profile profiledata" "profile portfoliodata";
+  height: 100vh;
+  width: 100%;
+  grid-gap: 0.5rem;
+}
+
+.main .container .profile {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: profile;
+  background-color: white;
+  -webkit-filter: drop-shadow(1px 2px 5px #e1e5ea);
+          filter: drop-shadow(1px 2px 5px #e1e5ea);
+  border-radius: 20px;
+}
+
+.main .container .profile .user-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #f8f9fa;
+  padding: 30px;
+  margin: 30% 60px;
+  border-radius: 20px;
+  border: 1px solid #e1e5ea;
+}
+
+.main .container .profile .user-icon i {
+  color: #6c757d;
+}
+
+.main .container .profile-data {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: profiledata;
+  background-color: white;
+  -webkit-filter: drop-shadow(1px 2px 5px #e1e5ea);
+          filter: drop-shadow(1px 2px 5px #e1e5ea);
+  border-radius: 20px;
+}
+
+.main .container .profile-data .user-info {
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+.main .container .profile-data .user-info table {
+  border-collapse: separate;
+  border-spacing: 7px 1rem;
+}
+
+.main .container .portfolio-data {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: portfoliodata;
+  background-color: white;
+  -webkit-filter: drop-shadow(1px 2px 5px #e1e5ea);
+          filter: drop-shadow(1px 2px 5px #e1e5ea);
+  border-radius: 20px;
+}
+/*# sourceMappingURL=userProfile.css.map */

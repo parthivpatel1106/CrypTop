@@ -50,18 +50,43 @@ html {
       grid-template-columns: 50% 50%;
   height: 100vh;
   width: 100%;
-      grid-template-areas: "charts charts" "con1 con2";
+      grid-template-areas: "dataOfCoin charts" "con1 con2";
+}
+
+.container .coinData {
+  -webkit-filter: drop-shadow(1px 2px 5px #e1e5ea);
+          filter: drop-shadow(1px 2px 5px #e1e5ea);
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: dataOfCoin;
+  background-color: white;
+  border-radius: 20px;
+  height: 370px;
 }
 
 .container .chart {
   -webkit-filter: drop-shadow(1px 2px 5px #e1e5ea);
           filter: drop-shadow(1px 2px 5px #e1e5ea);
   -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
+  -ms-grid-column: 2;
   grid-area: charts;
   background-color: white;
   border-radius: 20px;
+  height: 370px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#myChart {
+  display: block;
+  margin: 0 auto;
+  height: 350px !important;
+  width: 350px !important;
 }
 
 .content {
@@ -70,6 +95,7 @@ html {
           filter: drop-shadow(1px 2px 5px #e1e5ea);
   border-radius: 20px;
   padding: 10px;
+  margin-top: 100px;
 }
 
 .content .btn {
@@ -114,11 +140,22 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0px 40px;
+  margin: 0px 30px;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
 }
 
 .priceBox .cryptoPrice {
   margin-top: 9px;
+}
+
+.priceBox .btn {
+  color: white;
+  background-color: #17a2b8;
+}
+
+.priceBox .btn:hover {
+  background-color: #196570;
 }
 
 .percentStats {
@@ -128,5 +165,63 @@ html {
 .percentStats tbody td {
   font-weight: 500;
   text-align: center;
+}
+
+.resources .resource-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 10px;
+}
+
+.resources .resource-links a {
+  text-decoration: none;
+  background-color: #17a2b8;
+  color: white;
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.volumeStatsTable {
+  margin: 0px 20px;
+}
+
+.volumeStatsTable table tbody tr td {
+  font-weight: 500;
+}
+
+.watch-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.watch-list form .btn {
+  color: white;
+  background-color: #17a2b8;
+  font-size: 14px;
+}
+
+.watch-list form .btn:hover {
+  background-color: #196570;
 }
 /*# sourceMappingURL=cryptoData.css.map */

@@ -10,6 +10,9 @@ const cookieParser=require("cookie-parser")
 //const bodyParser=require("body-parser")
 const sqlConn=require("../app.js")
 const { response } = require("express")
+const requestPromise = require("request-promise")
+const chartjs=require("chart.js")
+const { connect } = require("mongodb")
 require('dotenv').config()
 //const { connect } = require("mongodb")
 exports.signup=(req,res)=>{
@@ -76,6 +79,7 @@ exports.signup=(req,res)=>{
 exports.login= async (req,res)=>{
         try {
             const logemail=req.body.useremail
+            global.personaMail=logemail
             const logpwd=req.body.userpassword
             if(!logemail || !logpwd)
             {
@@ -123,13 +127,13 @@ exports.login= async (req,res)=>{
                             'convert': 'USD'
                         },
                         headers: {
-                            'X-CMC_PRO_API_KEY': process.env.COIN_MARKET_CAP_API_KEY
+                            'X-CMC_PRO_API_KEY': process.env.COIN_MARKET_CAP_API_KEY2
                         },
                         json: true,
                         gzip: true
                         };
                         rp(requestOptions).then(response => {
-                            console.log('API call response:', response.data[0].quote);
+                            // console.log('API call response:', response.data[0].quote);
                             // let bitcoinPrice= response.data[0].quote.USD.price
                             // let ethereumPrice= response.data[1].quote.USD.price
                             // let tetherPrice= response.data[2].quote.USD.price
@@ -184,52 +188,58 @@ exports.logout= async (req,res)=>{
     })   
     res.redirect('/')
 }
+exports.loginHome=(req,res)=>{
+    const rp = require('request-promise');
+        const requestOptions = {
+        method: 'GET',
+        uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
+        //uri:"https://pro-api.coinmarketcap.com/v1/fiat/map",
+        qs: {
+            'start': '1',
+            'limit': '5000',
+            'convert': 'USD'
+        },
+        headers: {
+            'X-CMC_PRO_API_KEY': process.env.COIN_MARKET_CAP_API_KEY2
+        },
+        json: true,
+        gzip: true
+        };
+        rp(requestOptions).then(response => {
+            const marketCaps=[]
+            const cryptoPrice=[]
+            const percentChange=[]
+            for(let i=0;i<5;i++)
+            {
+                cryptoPrice.push(response.data[i].quote.USD.price)
+                marketCaps.push(response.data[i].quote.USD.market_cap)
+                percentChange.push(response.data[i].quote.USD.percent_change_1h)
+            }
+            //console.log(marketCaps)
+            //bitcoinPriceList.push(bitcoinPrice);
+            res.status(200).render("userHomePage",{
+                bitcoinPrice:cryptoPrice[0].toFixed(2),
+                ethereumPrice:cryptoPrice[1].toFixed(2),
+                tetherPrice:cryptoPrice[2].toFixed(2),
+                binanceCoinPrice:cryptoPrice[3].toFixed(2),
+                cardanoPrice:cryptoPrice[4].toFixed(2),
+                bitcoinMarketCap:marketCaps[0].toFixed(0),
+                ethereumMarketCap:marketCaps[1].toFixed(0),
+                tetherMarketCap:marketCaps[2].toFixed(0),
+                binanceCoinMarketCap:marketCaps[3].toFixed(0),
+                cardanoMarketCap:marketCaps[4].toFixed(0),
+                bitcoinPercentChange:percentChange[0].toFixed(4),
+                ethereumPercentChange:percentChange[1].toFixed(4),
+                tetherPercentChange:percentChange[2].toFixed(4),
+                binanceCoinPercentChange:percentChange[3].toFixed(4),
+                cardanoPercentChange:percentChange[4].toFixed(4)   
+            })
+            }).catch((err) => {
+            console.log('API call error:', err.message);
+            });
+}
 
-// exports.bitcoin=(req,res)=>{
-//     const rp = require('request-promise');
-//     const requestOptions = {
-//     method: 'GET',
-//     uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
-//     qs: {
-//         'start': '1',
-//         'limit': '5000',
-//         'convert': 'USD'
-//     },
-//     headers: {
-//         'X-CMC_PRO_API_KEY': process.env.COIN_MARKET_CAP_API_KEY
-//     },
-//     json: true,
-//     gzip: true
-//     };
-//     var bitcoinPriceList=[];
-//     let timeCount=0;
-//     var timerID=setInterval(function(){
-//         timeCount++;
-//             if(timeCount===10)
-//             {
-//                 console.log("time out")
-//                 console.log(bitcoinPriceList)
-//                 clearInterval(timerID);
-//             }
-//         else{
-//             rp(requestOptions).then(response => {
-//                 //console.log('API call response:', response.data[0].quote.USD.price);
-//                 let bitcoinPrice= response.data[0].quote.USD.price
-//                 console.log(bitcoinPrice)
-//                 bitcoinPriceList.push(bitcoinPrice);
-//                 // res.render('userHomePage',{
-//                 //     price:bitcoinPrice
-//                 // })
-//                 }).catch((err) => {
-//                 console.log('API call error:', err.message);
-//                 });
-//         }
-//     },15*1000)
-//         //clearInterval(timerID)
-// }
-
-
-exports.bitcoin=(req,res)=>{
+exports.cryptoData=(req,res)=>{
     const rp = require('request-promise');
     const requestOptions = {
     method: 'GET',
@@ -240,53 +250,112 @@ exports.bitcoin=(req,res)=>{
         'convert': 'USD'
     },
     headers: {
-        'X-CMC_PRO_API_KEY': process.env.COIN_MARKET_CAP_API_KEY
+        'X-CMC_PRO_API_KEY': process.env.COIN_MARKET_CAP_API_KEY2
     },
     json: true,
     gzip: true
     };
     rp(requestOptions).then(response => {
         //console.log('API call response:', response.data[0].quote.USD.price);
-        let bitcoinPrice= response.data[0].quote.USD.price
-        let $1hPercent=response.data[0].quote.USD.percent_change_1h
-        let $24hPercent=response.data[0].quote.USD.percent_change_24h
-        let $7dPercent=response.data[0].quote.USD.percent_change_7d
-        //console.log(bitcoinPrice)
-        //bitcoinPriceList.push(bitcoinPrice);
+        var coinForum=["https://bitcointalk.org/","https://forum.ethereum.org/","https://twitter.com/tether_to","https://reddit.com/r/binance","https://forum.cardano.org/"]
+        var coinSourceCode=["https://github.com/bitcoin/","https://github.com/ethereum","#","#","https://cardanoupdates.com/"]
+        var whitePaper=["https://bitcoin.org/bitcoin.pdf","https://ethereum.org/en/whitepaper/","https://tether.to/wp-content/uploads/2016/06/TetherWhitePaper.pdf","https://www.exodus.com/assets/docs/binance-coin-whitepaper.pdf","https://docs.cardano.org/en/latest/"]
+        var coinKey
+        console.log(req.originalUrl)
+        url=req.originalUrl
+        global.coinUrl=url
+        switch (req.originalUrl) {
+            case '/auth/bitcoinData':
+                coinKey=0
+                console.log("fatching bitcoin data...")
+                break;
+            case '/auth/ethereumData':
+                coinKey=1
+                console.log("fatching ethereum data...")
+                break;
+            case '/auth/tetherData':
+                coinKey=2
+                console.log("fatching tether data...")
+                break;
+            case '/auth/binanceCoinData':
+                coinKey=3
+                console.log("fatching binance coin data...")
+                break;
+            case '/auth/cardanoData':
+                coinKey=4
+                console.log("fatching cardano data...")
+                break;
+            default:
+                break;
+        }
+        let coinName=response.data[coinKey].name
+        let coinPrice= response.data[coinKey].quote.USD.price
+        let $1hPercent=response.data[coinKey].quote.USD.percent_change_1h
+        let $24hPercent=response.data[coinKey].quote.USD.percent_change_24h
+        let $7dPercent=response.data[coinKey].quote.USD.percent_change_7d
+        let $market_cap=response.data[coinKey].quote.USD.market_cap
+        let $volume=response.data[coinKey].quote.USD.volume_24h
+        let ratio=$volume/$market_cap
+        var today=new Date()
+        var time=today.getHours()+":"+today.getMinutes()+":"+today.getSeconds()
+        console.log("time:",time)
+        console.log(coinName)
         res.render('cryptoData',{
-            price:bitcoinPrice,
+            price:coinPrice,
             $1h_percent:$1hPercent.toFixed(4),
             $24h_percent:$24hPercent.toFixed(4),
-            $7d_percent:$7dPercent.toFixed(4)
+            $7d_percent:$7dPercent.toFixed(4),
+            marketCap:$market_cap.toFixed(0),
+            marketVolume:$volume.toFixed(0),
+            marketVolumeRatio:ratio.toFixed(5),
+            $coinName:coinName,
+            whitePaperLink:whitePaper[coinKey],
+            forumLink:coinForum[coinKey],
+            sourceCodeLink:coinSourceCode[coinKey]
         })
         }).catch((err) => {
         console.log('API call error:', err.message);
         });    
 }
 
-// exports.ethereum=(req,res)=>{
-//     const rp = require('request-promise');
-//     const requestOptions = {
-//     method: 'GET',
-//     uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
-//     qs: {
-//         'start': '1',
-//         'limit': '5000',
-//         'convert': 'USD'
-//     },
-//     headers: {
-//         'X-CMC_PRO_API_KEY': process.env.COIN_MARKET_CAP_API_KEY
-//     },
-//     json: true,
-//     gzip: true
-//     };
-//     rp(requestOptions).then(response => {
-//         //console.log('API call response:', response.data[0].quote.USD.price);
-//         let bitcoinPrice= response.data[4]
-//         console.log(bitcoinPrice)
-//         //bitcoinPriceList.push(bitcoinPrice);
-//         res.send(bitcoinPrice)
-//         }).catch((err) => {
-//         console.log('API call error:', err.message);
-//         });    
-//}
+
+exports.userProfile=(req,res)=>{
+    sqlConn.connect.query("SELECT * FROM user_signup where email_id=?",[personaMail],async(error,results)=>{
+        if(error)
+        {
+            console.log(error)
+        }
+        else
+        {
+            console.log(results[0])
+            var string=JSON.stringify(results[0]);
+            console.log(string)
+            var json=JSON.parse(string)
+            console.log(json)
+            res.render('userProfile',{
+                firstname:json.first_name,
+                lastname:json.last_name,
+                emailId:json.email_id
+            })
+        }
+    })
+}
+
+exports.watchlist=(req,res)=>{
+    console.log(url)
+    sqlConn.connect.query('INSERT INTO user_portfolio SET?',{email_id:personaMail,coins:url},(error,results)=>{
+        if(error)
+        {
+            console.log(error)
+        }
+        else
+        {
+            console.log("data added to table")
+            //console.log(results)
+            // res.render('cryptoData',{
+            //     message:"currency added to your watchlist"
+            // })
+            res.redirect(coinUrl)
+        }
+    })  
+}

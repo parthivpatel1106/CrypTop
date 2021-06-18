@@ -1,0 +1,101 @@
+$nav-color:#ffffff;
+$body-color:#f8f9fa;
+$btn-color:#17a2b8;
+$gray-dark-font:#343a40;
+$gray-normal-font:#6c757d;
+$box-shadow:#e1e5ea;
+$nav-links:#313c47;
+$button-hover-color:#196570;
+$crypto-names:#b2b2b2;
+body{
+    font-family: "montserrat";
+    background-color: $body-color;
+    overflow-x: hidden;
+}
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+}
+.header
+{
+    position: fixed;
+    z-index: 1;
+}
+.navbar
+{
+    width:100%;
+    background-color:$nav-color;
+    height:70px;
+    position: fixed;
+    z-index: 1;
+    filter: drop-shadow(1px 2px 1px $box-shadow);
+    .navbar-brand
+    {
+        color:black;
+        font-size: 24px;
+        outline:none;
+    }
+    .nav-link
+    {
+        color:$nav-links;
+        text-transform: uppercase;
+    }
+}
+.main
+{
+    padding-top: 80px;
+    .container
+    {
+        display:grid;
+        grid-template-rows: 50% 50%;
+        grid-template-columns: 30% 70%;
+        grid-template-areas: "profile profiledata"
+        "profile portfoliodata";
+        height: 100vh;
+        width:100%;
+        grid-gap:0.5rem;
+        .profile
+        {
+            grid-area: profile;
+            background-color: white;
+            filter: drop-shadow(1px 2px 5px $box-shadow);
+            border-radius: 20px;
+            .user-icon
+            {
+                display:flex;
+                align-items: center;
+                justify-content: center;
+                background-color: $body-color;
+                padding:30px;
+                margin:30% 60px;
+                border-radius: 20px;
+                border:1px solid $box-shadow;
+                i{
+                    color:$gray-normal-font;
+                }
+            }
+        }
+        .profile-data{
+            grid-area: profiledata;
+            background-color: white;
+            filter: drop-shadow(1px 2px 5px $box-shadow);
+            border-radius: 20px;
+            .user-info
+            {
+                margin-left: 5%;
+                margin-top: 5%;
+                table{
+                    border-collapse: separate;
+                    border-spacing: 7px 1rem;
+                }
+            } 
+        }
+        .portfolio-data
+        {
+            grid-area: portfoliodata;
+            background-color: white;
+            filter: drop-shadow(1px 2px 5px $box-shadow);
+            border-radius: 20px;
+        }
+    }
+}

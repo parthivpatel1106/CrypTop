@@ -26,6 +26,9 @@ router.get('/home',(req,res)=>{
     res.render('userHomePage')
 })
 
+// router.get("/userProfile",(req,res)=>{
+//     res.render('userProfile')
+// })
 // router.get('/cryptoData',(req,res)=>{
 //     res.render('cryptoData')
 // })

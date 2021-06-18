@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="/cryptoData.scss" type="text/css">
     <link rel="stylesheet" href="/cryptoData.css">
     <title>Crypt.Op</title>
@@ -21,10 +21,10 @@
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav ml-auto" >
                     <li class="nav-item active-link">
-                        <a href="#home" class="nav-link">Home</a>
+                        <a href="/auth/user_login/home" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/auth/logOut" class="nav-link">Profile</a>
+                        <a href="/auth/userProfile" class="nav-link">Profile</a>
                     </li>
                     <li class="nav-item">
                         <a href="/auth/logOut" class="nav-link">Logout</a>
@@ -35,14 +35,33 @@
     </div>
     <div class="page">
         <div class="container">
-            <div class="chart"></div>
-            <div class="content content1">
-                <h4 class="text-center">Price:</h4>
+            <div class="coinData">
+                    <h2 class="font-weight-bold text-center mt-2">{{$coinName}}</h2>
+                    <h4 class="text-center mt-4">Price:</h4>
                 <div class="priceBox">
                     <h3 class="cryptoPrice text-center font-weight-bold" id="priceConvert">$ {{price}}</h3>
                     <button class="btn btn-sm" id="convertBtn">Price in INR</button>
                 </div>
-                <p class="text-center"><small class="text-danger" id="notice"></small></p>
+                 <p class="text-center"><small class="text-danger" id="notice"></small></p>
+                 <div class="watch-list">
+                    <form action="/auth/watchList" class="form-group" method="POST">
+                        <input type="submit" value="Add to watchlist" class="btn" id="watchlistBtn">
+                    </form> 
+                    <p class="text-center text-danger" id="watchListNotice"></p>
+                </div>
+                <div class="resources">
+                    <h4 class="text-center mt-3">Resources:</h4>
+                    <div class="resource-links">
+                        <a href="{{whitePaperLink}}">Whitepaper<i class="fas fa-external-link-alt ml-1"></i></a>
+                        <a href="{{sourceCodeLink}}">Source code<i class="fas fa-external-link-alt ml-1"></i></a>
+                        <a href="{{forumLink}}">Forum<i class="fas fa-external-link-alt ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="chart">
+                    <canvas id="myChart" ></canvas>
+            </div>
+            <div class="content content1">
                 <h4 class="text-center">Percent Change:</h4>
                 <div class="percentStats">
                 <table class="table">
@@ -63,10 +82,47 @@
                 </table>
                 </div>
             </div>
-            <div class="content content2"></div>
+            <div class="content content2">
+                <div class="volumeStats">
+                    <h4 class="text-center">Market stats:</h4>
+                    <div class="volumeStatsTable">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-center">Market Cap</th>
+                                <th scope="col" class="text-center">Volume (24h)</th>
+                                <th scope="col" class="text-center">Volume/Market Cap</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row" class="marketCapData text-center" id="marketConvert">$ {{marketCap}}</td>
+                                <td class="marketCapData text-center">$ {{marketVolume}}</td>
+                                <td class="text-center marketCapData">{{marketVolumeRatio}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+                {{!-- <div class="watch-list">
+                    <form action="/auth/watchList" class="form-group" method="POST">
+                        <input type="submit" value="Add to watchlist" class="btn" id="watchlistBtn">
+                    </form> 
+                    <p class="text-center text-danger" id="watchListNotice">{{message}}</p>
+                </div>
+                <div class="resources">
+                    <h4 class="text-center mt-3">Resources:</h4>
+                    <div class="resource-links">
+                        <a href="{{whitePaperLink}}">Whitepaper<i class="fas fa-external-link-alt ml-1"></i></a>
+                        <a href="{{sourceCodeLink}}">Source code<i class="fas fa-external-link-alt ml-1"></i></a>
+                        <a href="{{forumLink}}">Forum<i class="fas fa-external-link-alt ml-1"></i></a>
+                    </div>
+                </div> --}}
+            </div>
         </div>
     </div>
     <script src="/cryptoData.js"></script>
+    
     {{!-- bootstrap js cdn starts --}}
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
