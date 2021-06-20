@@ -128,7 +128,7 @@ exports.login= async (req,res)=>{
                             'convert': 'USD'
                         },
                         headers: {
-                            'X-CMC_PRO_API_KEY': process.env.COIN_MARKET_CAP_API_KEY2
+                            'X-CMC_PRO_API_KEY': process.env.COIN_MARKET_CAP_API_KEY3
                         },
                         json: true,
                         gzip: true
@@ -201,7 +201,7 @@ exports.loginHome=(req,res)=>{
             'convert': 'USD'
         },
         headers: {
-            'X-CMC_PRO_API_KEY': process.env.COIN_MARKET_CAP_API_KEY2
+            'X-CMC_PRO_API_KEY': process.env.COIN_MARKET_CAP_API_KEY3
         },
         json: true,
         gzip: true
@@ -251,7 +251,7 @@ exports.cryptoData=(req,res)=>{
         'convert': 'USD'
     },
     headers: {
-        'X-CMC_PRO_API_KEY': process.env.COIN_MARKET_CAP_API_KEY2
+        'X-CMC_PRO_API_KEY': process.env.COIN_MARKET_CAP_API_KEY3
     },
     json: true,
     gzip: true
