@@ -73,3 +73,12 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+
+const msg=document.getElementById("watchListMsg").innerHTML
+//console.log(msg)
+if(msg==="already in watchlist")
+{
+    var watchbtn=document.getElementById('watchlistBtn')
+    //console.log(watchbtn)
+    watchbtn.style.display="none"      
+}

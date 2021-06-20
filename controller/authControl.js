@@ -12,6 +12,7 @@ const sqlConn=require("../app.js")
 const { response } = require("express")
 const requestPromise = require("request-promise")
 const chartjs=require("chart.js")
+//var pop=require('popups')
 const { connect } = require("mongodb")
 require('dotenv').config()
 //const { connect } = require("mongodb")
@@ -288,8 +289,10 @@ exports.cryptoData=(req,res)=>{
             default:
                 break;
         }
-        let coinName=response.data[coinKey].name
+        var coinName=response.data[coinKey].name
+        global.portfolioCoinName=coinName
         let coinPrice= response.data[coinKey].quote.USD.price
+        //global.coinPrice=portfolioCoinPrice
         let $1hPercent=response.data[coinKey].quote.USD.percent_change_1h
         let $24hPercent=response.data[coinKey].quote.USD.percent_change_24h
         let $7dPercent=response.data[coinKey].quote.USD.percent_change_7d
@@ -300,18 +303,51 @@ exports.cryptoData=(req,res)=>{
         var time=today.getHours()+":"+today.getMinutes()+":"+today.getSeconds()
         console.log("time:",time)
         console.log(coinName)
-        res.render('cryptoData',{
-            price:coinPrice,
-            $1h_percent:$1hPercent.toFixed(4),
-            $24h_percent:$24hPercent.toFixed(4),
-            $7d_percent:$7dPercent.toFixed(4),
-            marketCap:$market_cap.toFixed(0),
-            marketVolume:$volume.toFixed(0),
-            marketVolumeRatio:ratio.toFixed(5),
-            $coinName:coinName,
-            whitePaperLink:whitePaper[coinKey],
-            forumLink:coinForum[coinKey],
-            sourceCodeLink:coinSourceCode[coinKey]
+        sqlConn.connect.query("SELECT * FROM user_portfolio WHERE email_id=? && coins=?",[personaMail,url],async(error,watchlistResults)=>{
+            if(error)
+            {
+                console.log(error)
+            }
+            else
+            {
+                const watchString=JSON.stringify(watchlistResults)
+                console.log(typeof(watchString))
+                if(watchString==="[]")
+                {
+                    console.log("not results")
+                    res.render('cryptoData',{
+                        price:coinPrice,
+                        $1h_percent:$1hPercent.toFixed(4),
+                        $24h_percent:$24hPercent.toFixed(4),
+                        $7d_percent:$7dPercent.toFixed(4),
+                        marketCap:$market_cap.toFixed(0),
+                        marketVolume:$volume.toFixed(0),
+                        marketVolumeRatio:ratio.toFixed(5),
+                        $coinName:coinName,
+                        whitePaperLink:whitePaper[coinKey],
+                        forumLink:coinForum[coinKey],
+                        sourceCodeLink:coinSourceCode[coinKey]
+                        //watchListMessage:"already in watchlist"
+                    })                
+                }
+                else{
+                    //console.log("here",watchlistResults)
+                    res.render('cryptoData',{
+                        price:coinPrice,
+                        $1h_percent:$1hPercent.toFixed(4),
+                        $24h_percent:$24hPercent.toFixed(4),
+                        $7d_percent:$7dPercent.toFixed(4),
+                        marketCap:$market_cap.toFixed(0),
+                        marketVolume:$volume.toFixed(0),
+                        marketVolumeRatio:ratio.toFixed(5),
+                        $coinName:coinName,
+                        whitePaperLink:whitePaper[coinKey],
+                        forumLink:coinForum[coinKey],
+                        sourceCodeLink:coinSourceCode[coinKey],
+                        watchListMessage:"already in watchlist"
+                })
+                }        
+            }
         })
         }).catch((err) => {
         console.log('API call error:', err.message);
@@ -320,22 +356,32 @@ exports.cryptoData=(req,res)=>{
 
 
 exports.userProfile=(req,res)=>{
-    sqlConn.connect.query("SELECT * FROM user_signup where email_id=?",[personaMail],async(error,results)=>{
+    sqlConn.connect.query("SELECT * FROM user_signup where email_id=?",[personaMail],async(error,results)=>{    
         if(error)
         {
             console.log(error)
         }
         else
         {
-            console.log(results[0])
+            //console.log(results[0])
             var string=JSON.stringify(results[0]);
-            console.log(string)
+            //console.log(string)
             var json=JSON.parse(string)
-            console.log(json)
-            res.render('userProfile',{
-                firstname:json.first_name,
-                lastname:json.last_name,
-                emailId:json.email_id
+            //console.log(json)
+            sqlConn.connect.query("SELECT coins,coin_name FROM user_portfolio WHERE email_id=?",[personaMail],async(error,coinResult)=>{
+                if(error)
+                {
+                    console.log(error)
+                }
+                else
+                {
+                    res.render('userProfile',{
+                        firstname:json.first_name,
+                        lastname:json.last_name,
+                        emailId:json.email_id,
+                        items:coinResult
+                    })
+                }
             })
         }
     })
@@ -343,15 +389,15 @@ exports.userProfile=(req,res)=>{
 
 exports.watchlist=(req,res)=>{
     console.log(url)
-    sqlConn.connect.query('INSERT INTO user_portfolio SET?',{email_id:personaMail,coins:url},(error,results)=>{
+    sqlConn.connect.query('INSERT INTO user_portfolio SET ?',{email_id:personaMail,coins:url,coin_name:portfolioCoinName},(error,results)=>{
         if(error)
         {
-            console.log(error)
+            res.redirect(coinUrl)          
         }
         else
         {
             console.log("data added to table")
-            //console.log(results)
+            //console.log("data",results)
             // res.render('cryptoData',{
             //     message:"currency added to your watchlist"
             // })

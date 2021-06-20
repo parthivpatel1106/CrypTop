@@ -113,4 +113,25 @@ html {
           filter: drop-shadow(1px 2px 5px #e1e5ea);
   border-radius: 20px;
 }
+
+.list-group {
+  margin: 0px 50px;
+}
+
+.list-group .list-group-item {
+  margin: 5px 0px;
+  font-weight: 500;
+  background-color: #17a2b8;
+  border: none;
+  border-radius: 20px;
+}
+
+.list-group .list-group-item a {
+  color: white;
+  text-decoration: none;
+}
+
+.list-group .list-group-item:hover {
+  background-color: #196570;
+}
 /*# sourceMappingURL=userProfile.css.map */

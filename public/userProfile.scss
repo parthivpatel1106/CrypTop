@@ -99,3 +99,24 @@ html{
         }
     }
 }
+.list-group
+{
+    margin:0px 50px;
+    .list-group-item
+    {
+        margin:5px 0px;
+        font-weight: 500;
+        background-color: $btn-color;
+        border: none;
+        border-radius: 20px;
+        a
+        {
+            color:white;
+            text-decoration: none;
+        }
+    }
+    .list-group-item:hover
+    {
+        background-color: $button-hover-color;
+    }
+}
