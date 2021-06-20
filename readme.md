@@ -1,1 +1,1 @@
-Crypt.op a cryptocurrency tracker
+Crypt.op a cryptocurrency stats tracker
